@@ -26,47 +26,58 @@
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [{
-            "command": "indentation-level-movement.moveDown",
-            "title": "Indentation Level Move Down"
-        }, {
-            "command": "indentation-level-movement.moveUp",
-            "title": "Indentation Level Move Up"
-        }, {
-            "command": "indentation-level-movement.moveRight",
-            "title": "Indentation Level Move Right"
-        }, {
-            "command": "indentation-level-movement.selectDown",
-            "title": "Indentation Level Select Down"
-        }, {
-            "command": "indentation-level-movement.selectUp",
-            "title": "Indentation Level Select Up"
-        }],
-        "keybindings": [{
-            "command": "indentation-level-movement.moveDown",
-            "key": "ctrl-down",
-            "mac": "alt-down",
-            "when": "editorTextFocus"
-        }, {
-            "command": "indentation-level-movement.moveUp",
-            "key": "ctrl-up",
-            "mac": "alt-up",
-            "when": "editorTextFocus"
-
-        }, {
-            "command": "indentation-level-movement.moveRight",
-            "key": "ctrl-right",
-            "mac": "alt-right",
-            "when": "editorTextFocus"
-        }, {
-            "command": "indentation-level-movement.selectDown",
-            "key": "ctrl-shift-down",
-            "mac": "alt-shift-down"
-        }, {
-            "command": "indentation-level-movement.selectUp",
-            "key": "ctrl-shift-up",
-            "mac": "alt-shift-up"
-        }]
+        "commands": [
+            {
+                "command": "indentation-level-movement.moveDown",
+                "title": "Indentation Level Move Down"
+            },
+            {
+                "command": "indentation-level-movement.moveUp",
+                "title": "Indentation Level Move Up"
+            },
+            {
+                "command": "indentation-level-movement.moveRight",
+                "title": "Indentation Level Move Right"
+            },
+            {
+                "command": "indentation-level-movement.selectDown",
+                "title": "Indentation Level Select Down"
+            },
+            {
+                "command": "indentation-level-movement.selectUp",
+                "title": "Indentation Level Select Up"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "indentation-level-movement.moveDown",
+                "key": "ctrl-down",
+                "mac": "alt-down",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "indentation-level-movement.moveUp",
+                "key": "ctrl-up",
+                "mac": "alt-up",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "indentation-level-movement.moveRight",
+                "key": "ctrl-right",
+                "mac": "alt-right",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "indentation-level-movement.selectDown",
+                "key": "ctrl-shift-down",
+                "mac": "alt-shift-down"
+            },
+            {
+                "command": "indentation-level-movement.selectUp",
+                "key": "ctrl-shift-up",
+                "mac": "alt-shift-up"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
