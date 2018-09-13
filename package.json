@@ -1,15 +1,15 @@
 {
     "name": "indentation-level-movement",
-    "displayName": "Indentation Level Movement",
-    "description": "Fast and efficient vertical movement.",
+    "displayName": "Indentation Level Movement (fork)",
+    "description": "Fast and efficient vertical movement. Fork for whitespace sensitive languages (pug, sass, python, yaml, etc).",
     "version": "1.1.1",
-    "publisher": "kaiwood",
+    "publisher": "florisvdg",
     "icon": "images/indentation-level-movement-icon.png",
     "license": "MIT",
-    "bugs": "https://github.com/kaiwood/vscode-indentation-level-movement/issues",
+    "bugs": "https://github.com/florisvdg/vscode-indentation-level-movement/issues",
     "repository": {
         "type": "git",
-        "url": "https://github.com/kaiwood/vscode-indentation-level-movement"
+        "url": "https://github.com/florisvdg/vscode-indentation-level-movement"
     },
     "engines": {
         "vscode": "^1.5.0"
