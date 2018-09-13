@@ -110,8 +110,9 @@ class IndentationLevelMover {
         }
         let startPoint = editor.selection.start;
         this.moveUp();
-        let endPoint = editor.selection.end;
-        editor.selection = new Selection(startPoint, endPoint);
+        let endLine = editor.selection.end.line - 1;
+        let endPoint = new Position(endLine, editor.document.lineAt(endLine).text.length);
+        editor.selection = new Selection(endPoint, startPoint);
     }
 
     public selectDown() {
@@ -122,8 +123,9 @@ class IndentationLevelMover {
 
         let startPoint = editor.selection.start;
         this.moveDown();
-        let endPoint = editor.selection.end;
-        editor.selection = new Selection(startPoint, endPoint);
+        let endLine = editor.selection.end.line - 1;
+        let endPoint = new Position(endLine, editor.document.lineAt(endLine).text.length);
+        editor.selection = new Selection(endPoint, startPoint);
     }
 
     public move(toLine) {
@@ -136,7 +138,6 @@ class IndentationLevelMover {
         let selection = new Selection(newPosition, newPosition);
 
         editor.selection = selection;
-        editor.revealRange(new Range(newPosition, newPosition));
     }
 
     public indentationLevelForLine(lineToCheck) {
@@ -157,15 +158,11 @@ class IndentationLevelMover {
             return;
         }
 
-        var gap = (this.indentationLevelForLine(currentLineNumber+1) !== currentIndentationLevel ? true : false)
-
         for (let lineNumber = currentLineNumber + 1; lineNumber < editor.document.lineCount; lineNumber++) {
             let indentationForLine = this.indentationLevelForLine(lineNumber);
 
-            if (gap && indentationForLine === currentIndentationLevel) {
+            if (indentationForLine <= currentIndentationLevel) {
                 return lineNumber;
-            } else if ((!gap) && indentationForLine !== currentIndentationLevel) {
-                return lineNumber - 1;
             }
         }
 
@@ -179,15 +176,11 @@ class IndentationLevelMover {
             return;
         }
 
-        var gap = (this.indentationLevelForLine(currentLineNumber-1) !== currentIndentationLevel ? true : false)
-
         for (let lineNumber = currentLineNumber - 1; lineNumber > 0; lineNumber--) {
             let indentationForLine = this.indentationLevelForLine(lineNumber);
 
-            if (gap && indentationForLine === currentIndentationLevel) {
+            if (indentationForLine <= currentIndentationLevel) {
                 return lineNumber;
-            } else if ((!gap) && indentationForLine !== currentIndentationLevel) {
-                return lineNumber + 1;
             }
         }
 
